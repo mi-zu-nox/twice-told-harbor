@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twice-Told Harbor — a spot the difference game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header id="masthead">
+    <div id="brand">
+      <h1>Twice-Told Harbor</h1>
+      <p id="tagline">a spot-the-difference game in three scenes</p>
+    </div>
+    <div id="scene-tabs" aria-label="Scenes">
+      <span class="tab" data-tab="0">1 · Lantern Harbour</span>
+      <span class="tab" data-tab="1">2 · Crumb &amp; Ember Bakery</span>
+      <span class="tab" data-tab="2">3 · The Glasshouse Garden</span>
+    </div>
+  </header>
+
+  <section id="hud" aria-label="Game status">
+    <div class="chip chip-counter">
+      <span id="found-count">0</span><span class="chip-label">found</span>
+      <span id="pips" aria-hidden="true"></span>
+    </div>
+    <div class="chip chip-to-go">
+      <span id="to-go">7</span><span class="chip-label">differences to go</span>
+    </div>
+    <div class="chip chip-time">
+      <div id="time-bar"><div id="time-fill"></div></div>
+      <span id="time-left">120</span><span class="chip-label">seconds left</span>
+    </div>
+    <div class="chip">
+      <span id="score">0</span><span class="chip-label">score</span>
+    </div>
+    <div class="chip">
+      <button id="hint-button" type="button">Hint (<span id="hints-left">3</span>)</button>
+      <button id="sound-button" type="button">Sound: on</button>
+      <button id="restart-button" type="button">Restart scene</button>
+    </div>
+  </section>
+
+  <main id="stage">
+    <figure class="panel-wrap">
+      <figcaption>Original</figcaption>
+      <canvas id="panel-left" width="540" height="400"></canvas>
+    </figure>
+    <figure class="panel-wrap">
+      <figcaption>The same scene, retold — spot the changes</figcaption>
+      <canvas id="panel-right" width="540" height="400"></canvas>
+    </figure>
+    <div id="banner" hidden>
+      <h2 id="banner-title">Scene complete!</h2>
+      <p id="banner-text"></p>
+      <button id="banner-button" type="button">Next scene</button>
+    </div>
+  </main>
+
+  <footer id="help">
+    <p>
+      Click a difference in either picture, or move the brass ring with the
+      arrow keys and press <strong>Enter</strong> to check it.
+      <strong>H</strong> spends a hint, <strong>M</strong> mutes the sound,
+      <strong>R</strong> restarts the scene. A wrong guess costs 3 seconds.
+      Find all 7 differences before the light runs out.
+    </p>
+    <p id="message" role="status">Scene 1 of 3 — Lantern Harbour at dusk. Seven things have changed in the retelling.</p>
+  </footer>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
